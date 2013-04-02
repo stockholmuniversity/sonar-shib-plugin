@@ -4,7 +4,7 @@
 
   <groupId>se.su.it.sonar.plugin</groupId>
   <artifactId>sonar-shib-plugin</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1-SNAPSHOT</version>
   <packaging>sonar-plugin</packaging>
 
   <name>Sonar Shibboleth Plugin</name>
