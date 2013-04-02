@@ -16,6 +16,7 @@
     <name>Stockholm University</name>
     <url>http://www.su.se/it</url>
   </organization>
+
   <licenses>
     <license>
       <name>BSD 3-Clause</name>
@@ -30,9 +31,15 @@
       <name>Joakim Lundin</name>
       <timezone>+1</timezone>
       <email>joakim.lundin@su.se</email>
-      <organization></organization>
+      <organization>Stockholm University</organization>
     </developer>
   </developers>
+
+  <scm>
+	<connection>scm:git:git@github.com:stockholmuniversity/sonar-shib-plugin.git</connection>
+	<url>scm:git:git@github.com:stockholmuniversity/sonar-shib-plugin.git</url>
+	<developerConnection>scm:git:git@github.com:stockholmuniversity/sonar-shib-plugin.git</developerConnection>
+  </scm>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -67,6 +74,7 @@
           <pluginKey>shibboleth</pluginKey>
           <pluginName>Shibboleth</pluginName>
           <pluginClass>se.su.it.sonar.plugin.shibboleth.SonarShibPlugin</pluginClass>
+          <pluginUrl>https://github.com/stockholmuniversity/sonar-shib-plugin</pluginUrl>
         </configuration>
       </plugin>
 
@@ -85,6 +93,19 @@
           <target>${jdk.min.version}</target>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.2.1</version>
+      </plugin>
     </plugins>
   </build>
+
+  <distributionManagement>
+    <repository>
+      <id>it.su.se-repository</id>
+      <url>scpexe://svn.it.su.se/afs/su.se/services/maven/it.su.se/maven2</url>
+    </repository>
+  </distributionManagement>
 </project>
