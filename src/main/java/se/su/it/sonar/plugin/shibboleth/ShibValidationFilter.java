@@ -42,8 +42,8 @@ public class ShibValidationFilter extends ServletFilter {
         username = httpRequest.getUserPrincipal().getName();
       if(username == null)
         username = httpRequest.getHeader("REMOTE_USER");
-      if(username == null)
-        username = httpRequest.getHeader("eppn");
+      if(username == null && httpRequest.getAttribute("eppn") != null)
+        username = (String) httpRequest.getAttribute("eppn");
 
       if (username != null) {
         user = new UserDetails();
