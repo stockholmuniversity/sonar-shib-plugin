@@ -182,4 +182,8 @@
       <url>scpexe://svn.it.su.se/afs/su.se/services/maven/it.su.se/maven2</url>
     </repository>
   </distributionManagement>
+
+  <prerequisites>
+    <maven>3.0.0</maven>
+  </prerequisites>
 </project>
