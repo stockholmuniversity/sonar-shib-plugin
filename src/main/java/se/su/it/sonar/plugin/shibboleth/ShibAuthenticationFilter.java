@@ -1,7 +1,6 @@
 package se.su.it.sonar.plugin.shibboleth;
 
 import org.sonar.api.config.Settings;
-import org.sonar.api.security.UserDetails;
 import org.sonar.api.web.ServletFilter;
 
 import javax.servlet.*;
