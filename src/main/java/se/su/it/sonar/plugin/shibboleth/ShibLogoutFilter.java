@@ -1,6 +1,5 @@
 package se.su.it.sonar.plugin.shibboleth;
 
-import org.slf4j.LoggerFactory;
 import org.sonar.api.config.Settings;
 import org.sonar.api.web.ServletFilter;
 

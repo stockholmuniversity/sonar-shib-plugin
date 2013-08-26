@@ -1,7 +1,5 @@
 package se.su.it.sonar.plugin.shibboleth;
 
-import com.google.common.annotations.VisibleForTesting;
-import org.slf4j.LoggerFactory;
 import org.sonar.api.config.Settings;
 import org.sonar.api.security.UserDetails;
 import org.sonar.api.web.ServletFilter;
@@ -10,7 +8,6 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Enumeration;
 import java.util.logging.Logger;
 
 public class ShibValidationFilter extends ServletFilter {
@@ -45,8 +42,8 @@ public class ShibValidationFilter extends ServletFilter {
         username = httpRequest.getUserPrincipal().getName();
       if(username == null)
         username = httpRequest.getHeader("REMOTE_USER");
-      if(username == null)
-        username = httpRequest.getHeader("eppn");
+      if(username == null && httpRequest.getAttribute("eppn") != null)
+        username = (String) httpRequest.getAttribute("eppn");
 
       if (username != null) {
         user = new UserDetails();
