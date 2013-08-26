@@ -183,6 +183,16 @@
     </repository>
   </distributionManagement>
 
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>cobertura-maven-plugin</artifactId>
+        <version>2.6</version>
+      </plugin>
+    </plugins>
+  </reporting>
+
   <prerequisites>
     <maven>3.0.0</maven>
   </prerequisites>
