@@ -15,7 +15,7 @@ class ShibAuthenticatiorSpec extends Specification {
     def context = new Authenticator.Context("", "", request)
 
     request.getAttribute(ShibValidationFilter.USER_ATTRIBUTE) >> userDetails
-  
+
     when:
     def ret = new ShibAuthenticator().doAuthenticate(context)
 
