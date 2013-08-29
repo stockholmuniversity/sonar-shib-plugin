@@ -12,6 +12,8 @@ public class ShibAuthenticator extends Authenticator {
   public boolean doAuthenticate(Context context) {
     Object username = context.getRequest().getAttribute(ShibValidationFilter.USER_ATTRIBUTE);
 
+    LOG.info("doAuthenticate called for user " + username);
+
     return username != null;
   }
 }

@@ -9,14 +9,7 @@ import org.sonar.api.SonarPlugin;
 import org.sonar.api.config.Settings;
 
 import java.util.List;
-/*
-@Properties(
-    @Property( key="sonar.authenticator.createUsers",
-               name="Create users",
-               description="Allow creation of users.",
-               defaultValue="false")
-)
-*/
+
 public final class SonarShibPlugin extends SonarPlugin {
 
   public static final String SECURITY_REALM_KEY = "sonar.security.realm";
