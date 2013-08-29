@@ -12,6 +12,9 @@ import java.util.List;
 
 public final class SonarShibPlugin extends SonarPlugin {
 
+  public static final String SECURITY_REALM_KEY = "sonar.security.realm";
+  public static final String SETTINGS_CREATE_USERS = "sonar.authenticator.createUsers";
+
   public List getExtensions() {
     return ImmutableList.of(Extensions.class);
   }
@@ -28,7 +31,7 @@ public final class SonarShibPlugin extends SonarPlugin {
       List<Class> extensions = Lists.newArrayList();
 
       if (isRealmEnabled()) {
-        Preconditions.checkState(settings.getBoolean("sonar.authenticator.createUsers"), "Property sonar.authenticator.createUsers must be set to true.");
+        Preconditions.checkState(settings.getBoolean(SETTINGS_CREATE_USERS), "Property sonar.authenticator.createUsers must be set to true.");
         extensions.add(ShibSecurityRealm.class);
         extensions.add(ShibAuthenticator.class);
         extensions.add(ShibValidationFilter.class);
@@ -40,7 +43,7 @@ public final class SonarShibPlugin extends SonarPlugin {
     }
 
     private boolean isRealmEnabled() {
-      return ShibSecurityRealm.KEY.equalsIgnoreCase(settings.getString("sonar.security.realm"));
+      return ShibSecurityRealm.KEY.equalsIgnoreCase(settings.getString(SECURITY_REALM_KEY));
     }
   }
 }
