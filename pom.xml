@@ -43,6 +43,9 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <sonar.version>3.4</sonar.version>
     <sonar.buildVersion>3.4.1</sonar.buildVersion>
+    <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+    <sonar.java.coveragePlugin>cobertura</sonar.java.coveragePlugin>
+    <sonar.cobertura.reportPath>target/site/cobertura/coverage.xml</sonar.cobertura.reportPath>
     <jdk.min.version>1.5</jdk.min.version>
   </properties>
 

@@ -11,8 +11,10 @@ public class ShibUserProvider extends ExternalUsersProvider {
 
   @Override
   public UserDetails doGetUserDetails(Context context) {
-    LOG.info("Getting user details");
+    UserDetails userDetails = (UserDetails) context.getRequest().getAttribute(ShibValidationFilter.USER_ATTRIBUTE);
 
-    return (UserDetails) context.getRequest().getAttribute(ShibValidationFilter.USER_ATTRIBUTE);
+    LOG.info("doGetUserDetails called for user " + (userDetails != null ? userDetails.getName() : null));
+
+    return userDetails;
   }
 }
