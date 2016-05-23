@@ -11,7 +11,7 @@ The implementation is based on the [Sonar OpenID Plugin](http://docs.codehaus.or
 2. Put it into the _SONARQUBE_HOME/extensions/plugins_ directory
 3. Restart the SonarQube server
 
-## Usage
+## Setup
 
 The following properties must be added to _SONARQUBE_HOME/conf/sonar.properties_:
 
@@ -27,7 +27,12 @@ sonar.authenticator.createUsers: true
 # set security realm to use shibboleth
 sonar.security.realm=shibboleth
 
-# session initialisation url
+# session initialisation url (realtive to sonar root)
 sonar.shibboleth.sessionInitializer=/shibboleth/validate
+
+# local users - authenticated internally not through Shibboleth
+sonar.security.localUsers=foo,bar
 ```
+
+Finally, enforce Shibboleth authentication on the `sonar.shibboleth.sessionInitializer` URL.
 
